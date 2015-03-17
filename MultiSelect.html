@@ -1,0 +1,33 @@
+<html data-ng-app="MultiSelect">
+    <head>
+        <title>MultiSelect in AngularJS</title>
+        <script type="text/javascript" src="bower_components/angularjs/angular.js"></script>
+        <script type="text/javascript" src="scripts/MultiSelect.js"></script>
+    </head>
+    <body data-ng-controller="MainController">
+        <select
+                data-ng-options="item.displayText for item in items"
+                data-ng-model="selectedColours"
+                multiple="multiple"
+                style="width: 100px; height: 200px;">
+        </select>
+
+        <br />
+        <br />
+
+        <div data-ng-hide="nothingIsSelected()">selectedColours:
+            <ul>
+                <li data-ng-repeat="selectedColour in selectedColours">{{selectedColour}}</li>
+            </ul>
+        </div>
+
+        <div data-ng-hide="nothingIsSelected()">selectedColours:
+            <div data-ng-repeat="selectedColour in selectedColours" style="width: 100px; height: 20px; background-color: {{selectedColour.rgb}}"></div>
+        </div>
+
+        <br />
+
+        <button data-ng-click="onClear()">Clear</button>
+
+    </body>
+</html>
